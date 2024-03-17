@@ -47,7 +47,7 @@ class Book(BaseModel):
         verbose_name='Book Rate'
     )
 
-    number_of_editions = models.IntegerField(verbos_name='Number Of Editions')
+    number_of_editions = models.IntegerField(verbose_name='Number Of Editions')
 
 
     class Meta:
