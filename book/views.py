@@ -5,7 +5,7 @@ from .serializers import BookSerializer
 from .models import Book
 
 
-class BookViewSet(viewsets.ModelViewSet):
+class BookViewSet(viewsets.ReadOnlyModelViewSet):
     serializer_class = BookSerializer
     permission_classes = [permissions.IsAuthenticated]
     queryset = Book.objects.filter(is_active=True,).order_by('pk')
