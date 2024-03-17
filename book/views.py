@@ -7,7 +7,7 @@ from .scraper import scrape
 
 
 def scrape_view(request):
-    scrape(number_of_pages=1)
+    scrape(number_of_pages=5)
     return HttpResponse('Data scraped seccussfully')
 
 
