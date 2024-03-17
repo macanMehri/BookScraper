@@ -7,3 +7,7 @@ DEBUG = True
 ALLOWED_HOSTS = []
 
 ADMIN_PATH = ''
+
+HEADERS = {
+    'USER_AGENT': ''
+}
