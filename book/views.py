@@ -3,6 +3,12 @@ from django_filters.rest_framework import DjangoFilterBackend
 from rest_framework import viewsets, filters, permissions
 from .serializers import BookSerializer
 from .models import Book
+from .scraper import scrape
+
+
+def scrape_view(request):
+    scrape(number_of_pages=1)
+    return HttpResponse('Data scraped seccussfully')
 
 
 class BookViewSet(viewsets.ReadOnlyModelViewSet):
