@@ -4,10 +4,10 @@ from .models import Book
 
 
 def scrape(number_of_pages: int):
-    # Scraping first five pages
+    # Scraping first number_of_pages pages
     for page in range(number_of_pages):
         url = f'https://www.goodreads.com/search?page={page+1}&q=book&qid=tNFlYDVEba&tab=books'
-        
+
         request = Request(url=url)
 
         # Get all titles
@@ -63,6 +63,7 @@ def scrape(number_of_pages: int):
             editions.append(int(temp))
 
         # Add scraped data to database
+        # Calculate total number of datas
         total_data = len(titles)
         for i in range(total_data):
             Book.objects.create(
