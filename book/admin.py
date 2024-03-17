@@ -2,9 +2,15 @@ from django.contrib import admin
 from .models import Book
 import csv
 from django.http import HttpResponse
+from .scraper import scrape
 
 
 # Add new actions
+@admin.action(description='Scrape data')
+def scrape_date(modeladmin, request, queryset):
+    scrape(number_of_pages=5)
+
+
 @admin.action(description='Activate selected items')
 def activate_selected_items(modeladmin, request, queryset):
     queryset.update(is_active=True)
@@ -71,4 +77,5 @@ class AdminCategory(admin.ModelAdmin):
         activate_selected_items,
         deactivate_selected_items,
         download_csv,
+        scrape_date,
     )

@@ -1,9 +1,8 @@
 import logging
 import requests
-from ..book_scraper.local_settings import HEADERS
+from .local_headers import HEADERS
 from bs4 import BeautifulSoup
 from bs4 import Tag
-
 
 
 # Logging basic configuration

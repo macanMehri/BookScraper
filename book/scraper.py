@@ -3,9 +3,9 @@ from bs4 import BeautifulSoup
 from .models import Book
 
 
-def main():
+def scrape(number_of_pages: int):
     # Scraping first five pages
-    for page in range(5):
+    for page in range(number_of_pages):
         url = f'https://www.goodreads.com/search?page={page+1}&q=book&qid=tNFlYDVEba&tab=books'
         
         request = Request(url=url)
@@ -62,12 +62,13 @@ def main():
             temp = temp[:index]
             editions.append(int(temp))
 
-    # Add scraped data to database
-    for i in len(titles):
-        Book.objects.create(
-            title=titles[i],
-            writer=writers[i],
-            rating=ratings[i],
-            number_of_editions=editions[i],
-        )
+        # Add scraped data to database
+        total_data = len(titles)
+        for i in range(total_data):
+            Book.objects.create(
+                title=titles[i],
+                writer=writers[i],
+                rating=ratings[i],
+                number_of_editions=editions[i],
+            )
 
