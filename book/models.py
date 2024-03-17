@@ -53,3 +53,7 @@ class Book(BaseModel):
     class Meta:
         verbose_name = 'Book'
         verbose_name_plural = 'Books'
+    
+
+    def __str__(self) -> str:
+        return f'{self.title} - {self.writer} - {self.rating} - {self.number_of_editions} editions'
