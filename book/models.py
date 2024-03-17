@@ -47,6 +47,9 @@ class Book(BaseModel):
         verbose_name='Book Rate'
     )
 
-    published_year = models.IntegerField(verbos_name='Published Year')
-
     number_of_editions = models.IntegerField(verbos_name='Number Of Editions')
+
+
+    class Meta:
+        verbose_name = 'Book'
+        verbose_name_plural = 'Books'
